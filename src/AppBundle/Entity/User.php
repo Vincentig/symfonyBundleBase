@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -26,10 +27,18 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var Telephone[]
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Telephone", mappedBy="id")
+     */
+    protected $telephones;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+
+        $this->telephones = new ArrayCollection();
     }
     /**
      * @var \DateTime $created
@@ -93,5 +102,39 @@ class User extends BaseUser
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add telephone
+     *
+     * @param \AppBundle\Entity\Telephone $telephone
+     *
+     * @return User
+     */
+    public function addTelephone(\AppBundle\Entity\Telephone $telephone)
+    {
+        $this->telephones[] = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Remove telephone
+     *
+     * @param \AppBundle\Entity\Telephone $telephone
+     */
+    public function removeTelephone(\AppBundle\Entity\Telephone $telephone)
+    {
+        $this->telephones->removeElement($telephone);
+    }
+
+    /**
+     * Get telephones
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTelephones()
+    {
+        return $this->telephones;
     }
 }

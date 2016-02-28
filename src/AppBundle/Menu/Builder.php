@@ -21,6 +21,9 @@ class Builder implements ContainerAwareInterface
 
 
         $menu->addChild('Retour au site', array('route' => 'homepage'));
+        $menu['Retour au site']->setAttribute('icon', 'glyphicon glyphicon-home');
+
+
 
         $menu->addChild('Admin', array(
             'uri' => '#',
@@ -33,7 +36,7 @@ class Builder implements ContainerAwareInterface
 
 
 
-        $menu['Admin']->setAttribute('icon', 'menu-icon fa fa-tachometer');
+        $menu['Admin']->setAttribute('icon', 'glyphicon glyphicon-list-alt');
         $menu['Admin']->setAttribute('arrow', 'fa fa-angle-down');
         $menu['Admin']->setAttribute('span', 'menu-text');
 //        $menu['Admin']->setAttribute('extras', 'menu-text');
@@ -42,9 +45,14 @@ class Builder implements ContainerAwareInterface
 //        $menu['Admin']->setLinkAttribute('class', 'dropdown-toggle');
         $menu['Admin']->setLinkAttribute('data-toggle', 'collapse');
         $menu['Admin']->setChildrenAttribute('class', 'sub-menu collapse');
+
         $menu['Admin']->addChild('Admin', array('route' => 'admin_homepage'));
         $menu['Admin']->addChild('Admin2', array('route' => 'admin_homepage2'));
 
+
+        $menu->addChild('Test');
+        $menu->addChild('Test 2');
+        $menu->addChild('Test 3');
 
         $matcher = new Matcher();
         $matcher->addVoter(new RouteVoter());

@@ -9,3 +9,17 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+
+
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User }
+
+    admin.telephone:
+        class: AppBundle\Admin\TelephoneAdmin
+        arguments: [~, AppBundle\Entity\Telephone, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Telephone }
