@@ -1,4 +1,12 @@
 symfonyBundleBase
 =================
 
-A Symfony project created on January 15, 2016, 9:33 pm.
+Un projet symfony vide avec des bundles pré installés pour ne pas le refaire à chaque nouveau projet.
+
+Contient les bundles suivants :
+- assetic
+- fos user-bundle
+- stofdoctrineextensions
+- liip imagine
+- knp menu
+
