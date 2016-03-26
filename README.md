@@ -9,4 +9,5 @@ Contient les bundles suivants :
 - stofdoctrineextensions
 - liip imagine
 - knp menu
+- Sonata admin
 
